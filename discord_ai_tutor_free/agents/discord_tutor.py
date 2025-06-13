@@ -19,6 +19,8 @@ logger = logging.getLogger(__name__)
 class DiscordAITutorFree(commands.Bot):
     def __init__(self, *, intents: discord.Intents, command_prefix: str = '!ia '):
         super().__init__(command_prefix=command_prefix, intents=intents)
+
+        self._user_override = None
         
         # Instâncias das ferramentas e orquestrador
         self.classifier = SimpleClassifier()
@@ -32,6 +34,17 @@ class DiscordAITutorFree(commands.Bot):
         self._add_commands()
 
         logger.info("DiscordAITutorFree inicializado.")
+
+    # Permite injetar um objeto de usuário em testes
+    @property
+    def user(self):
+        if self._user_override is not None:
+            return self._user_override
+        return super().user
+
+    @user.setter
+    def user(self, value):
+        self._user_override = value
 
     async def on_ready(self):
         """Evento chamado quando o bot está pronto e conectado ao Discord."""

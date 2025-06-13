@@ -41,13 +41,16 @@ class ResponseCache:
     def _save_cache(self):
         """Salva o cache no arquivo JSON."""
         try:
-            # Criar um backup antes de salvar
+            import shutil
             if os.path.exists(self.cache_file):
-                import shutil # Importa shutil para copiar arquivos
                 shutil.copyfile(self.cache_file, self.cache_file + ".bak")
             with open(self.cache_file, 'w', encoding='utf-8') as f:
                 json.dump(self.cache, f, ensure_ascii=False, indent=4)
-            logger.debug(f"Cache salvo em {self.cache_file}. Total de entradas: {len(self.cache)}")
+            # Garante que sempre exista um arquivo de backup após salvar
+            shutil.copyfile(self.cache_file, self.cache_file + ".bak")
+            logger.debug(
+                f"Cache salvo em {self.cache_file}. Total de entradas: {len(self.cache)}"
+            )
         except Exception as e:
             logger.error(f"Erro ao salvar cache em {self.cache_file}: {e}")
 

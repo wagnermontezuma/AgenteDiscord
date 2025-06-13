@@ -114,6 +114,34 @@ Fundamentos: Clareza, utilidade, segurança.
             logger.error(f"Erro inesperado ao construir prompt para '{agent_type}': {e}")
             return None
 
+    def build_scaff_prompt(self, question: str, context: Optional[str], history: Optional[list]) -> str:
+        """Constrói um prompt utilizando o framework S.C.A.F.F."""
+        parts = [
+            "S.C.A.F.F. Framework:",
+            "1. **S**tep-by-step: Think step-by-step.",
+            "2. **C**ontext: Use the provided context.",
+            "3. **A**ction: Formulate a concise answer.",
+            "4. **F**ormat: Ensure the response is well-structured.",
+            "5. **F**act-check: Verify accuracy.",
+            "",
+        ]
+
+        if context:
+            parts.append(f"Context: {context}")
+
+        if history:
+            parts.append("History:")
+            for entry in history:
+                role = entry.get("role", "user").capitalize()
+                content = entry.get("content", "")
+                parts.append(f"{role}: {content}")
+
+        parts.append(f"Question: {question}")
+
+        prompt = "\n".join(parts)
+        logger.debug(f"Prompt S.C.A.F.F gerado: {prompt[:100]}...")
+        return prompt
+
     def count_tokens(self, text: str) -> int:
         """
         Estima o número de tokens em uma string.

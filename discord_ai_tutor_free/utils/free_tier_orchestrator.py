@@ -27,13 +27,18 @@ class FreeTierOrchestrator:
         self.cache = ResponseCache(cache_file=CACHE_FILE, ttl_hours=CACHE_EXPIRATION_TIME / 3600)
         self.prompt_builder = PromptBuilder() # Instancia o PromptBuilder
         
-        self._agent_configs = self._define_agent_configs() # Define as configurações dos agentes
-        self.agents: Dict[str, Agent] = {} # Agentes serão carregados sob demanda
-        self.metrics_collector = ProductionMetrics() # Instancia o coletor de métricas
-        self.alert_system = AlertSystem(self.metrics_collector) # Instancia o sistema de alertas
-        self.api_calls_made = 0 # Manter para compatibilidade e transição
-        self.cache_hits_saved = 0 # Manter para compatibilidade e transição
-        self.agent_metrics: Dict[str, Dict[str, int]] = {} # Métricas por agente, inicializadas no lazy load
+        self._agent_configs = self._define_agent_configs()  # Define as configurações dos agentes
+        self.agents: Dict[str, Agent] = {}  # Agentes serão carregados sob demanda
+        self.metrics_collector = ProductionMetrics()  # Instancia o coletor de métricas
+        self.alert_system = AlertSystem(self.metrics_collector)  # Instancia o sistema de alertas
+        self.api_calls_made = 0  # Manter para compatibilidade e transição
+        self.cache_hits_saved = 0  # Manter para compatibilidade e transição
+
+        # Inicializa métricas para todos os agentes disponíveis
+        self.agent_metrics: Dict[str, Dict[str, int]] = {
+            config["name"]: {"api_calls": 0, "cache_hits": 0}
+            for config in self._agent_configs.values()
+        }
 
         # Rate Limiting: 10 requests por minuto (60 segundos / 10 requests = 6 segundos por request)
         self.rate_limit_interval = 60 / 10 # Segundos entre requests
