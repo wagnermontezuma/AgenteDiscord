@@ -1,0 +1,9 @@
+# Ignorar ficheiros de ambiente
+.env
+
+# Ignorar ficheiros de cache e logs
+__pycache__/
+*.pyc
+*.log
+.coverage
+htmlcov/
