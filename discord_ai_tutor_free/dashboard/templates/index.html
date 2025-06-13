@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Monitoramento do Discord AI Tutor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .metric-card {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #007bff;
+        }
+        .metric-card h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .metric-card p {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .alert-card {
+            background-color: #ffe0b2; /* Light orange */
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #ff9800; /* Orange */
+            margin-top: 10px;
+        }
+        .alert-card.critical {
+            background-color: #ffcdd2; /* Light red */
+            border-left: 5px solid #f44336; /* Red */
+        }
+        .alert-card h3 {
+            margin-top: 0;
+            color: #ff9800;
+        }
+        .alert-card.critical h3 {
+            color: #f44336;
+        }
+        .status-ok { color: green; font-weight: bold; }
+        .status-warning { color: orange; font-weight: bold; }
+        .status-critical { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard de Monitoramento do Discord AI Tutor</h1>
+
+        <h2>Métricas em Tempo Real</h2>
+        <div id="metrics-display" class="metric-grid">
+            <div class="metric-card">
+                <h3>Tempo de Resposta Médio (s)</h3>
+                <p id="response_time_avg">Carregando...</p>
+            </div>
+            <div class="metric-card">
+                <h3>Uso de Cota da API</h3>
+                <p id="api_quota_usage">Carregando...</p>
+            </div>
+            <div class="metric-card">
+                <h3>Eficiência do Cache (%)</h3>
+                <p id="cache_efficiency">Carregando...</p>
+            </div>
+            <div class="metric-card">
+                <h3>Taxa de Erro (%)</h3>
+                <p id="error_rate">Carregando...</p>
+            </div>
+            <div class="metric-card">
+                <h3>Uso de CPU (%)</h3>
+                <p id="cpu_usage">Carregando...</p>
+            </div>
+            <div class="metric-card">
+                <h3>Uso de Memória (%)</h3>
+                <p id="memory_usage">Carregando...</p>
+            </div>
+            <div class="metric-card">
+                <h3>Espaço em Disco Usado (%)</h3>
+                <p id="disk_space">Carregando...</p>
+            </div>
+            <div class="metric-card">
+                <h3>Network I/O (Bytes Enviados)</h3>
+                <p id="network_io_sent">Carregando...</p>
+            </div>
+            <div class="metric-card">
+                <h3>Network I/O (Bytes Recebidos)</h3>
+                <p id="network_io_recv">Carregando...</p>
+            </div>
+        </div>
+
+        <h2>Alertas Ativos</h2>
+        <div id="alerts-display">
+            <p>Nenhum alerta ativo.</p>
+        </div>
+
+        <h2>Status de Saúde dos Componentes</h2>
+        <div id="health-status">
+            <p>Status do Orchestrator: <span id="orchestrator_status">Carregando...</span></p>
+            <p>Status do Coletor de Métricas: <span id="metrics_collector_status">Carregando...</span></p>
+        </div>
+    </div>
+
+    <script>
+        async function fetchMetrics() {
+            try {
+                const response = await fetch('/metrics');
+                const data = await response.json();
+
+                document.getElementById('response_time_avg').innerText = data.response_time_avg.toFixed(2);
+                document.getElementById('api_quota_usage').innerText = data.api_quota_usage;
+                document.getElementById('cache_efficiency').innerText = (data.cache_efficiency * 100).toFixed(2);
+                document.getElementById('error_rate').innerText = (data.error_rate * 100).toFixed(2);
+                document.getElementById('cpu_usage').innerText = data.cpu_usage.toFixed(2);
+                document.getElementById('memory_usage').innerText = data.memory_usage.toFixed(2);
+                document.getElementById('disk_space').innerText = data.disk_space.toFixed(2);
+                document.getElementById('network_io_sent').innerText = data.network_io.bytes_sent;
+                document.getElementById('network_io_recv').innerText = data.network_io.bytes_recv;
+
+                // Atualizar alertas
+                const alertsDisplay = document.getElementById('alerts-display');
+                alertsDisplay.innerHTML = ''; // Limpa alertas anteriores
+                const activeAlerts = data.active_alerts;
+                if (Object.keys(activeAlerts).length === 0) {
+                    alertsDisplay.innerHTML = '<p>Nenhum alerta ativo.</p>';
+                } else {
+                    for (const alertKey in activeAlerts) {
+                        if (activeAlerts[alertKey]) {
+                            const alertCard = document.createElement('div');
+                            alertCard.classList.add('alert-card');
+                            if (alertKey.includes('critical')) {
+                                alertCard.classList.add('critical');
+                            }
+                            alertCard.innerHTML = `<h3>${formatAlertName(alertKey)}</h3>`;
+                            alertsDisplay.appendChild(alertCard);
+                        }
+                    }
+                }
+
+            } catch (error) {
+                console.error('Erro ao buscar métricas:', error);
+                document.getElementById('metrics-display').innerHTML = '<p style="color: red;">Erro ao carregar métricas.</p>';
+                document.getElementById('alerts-display').innerHTML = '<p style="color: red;">Erro ao carregar alertas.</p>';
+            }
+
+            try {
+                const healthResponse = await fetch('/health');
+                const healthData = await healthResponse.json();
+                document.getElementById('orchestrator_status').innerText = healthData.orchestrator_initialized ? 'Inicializado' : 'Não Inicializado';
+                document.getElementById('orchestrator_status').className = healthData.orchestrator_initialized ? 'status-ok' : 'status-critical';
+                document.getElementById('metrics_collector_status').innerText = healthData.metrics_collector_initialized ? 'Inicializado' : 'Não Inicializado';
+                document.getElementById('metrics_collector_status').className = healthData.metrics_collector_initialized ? 'status-ok' : 'status-critical';
+            } catch (error) {
+                console.error('Erro ao buscar status de saúde:', error);
+                document.getElementById('health-status').innerHTML = '<p style="color: red;">Erro ao carregar status de saúde.</p>';
+            }
+        }
+
+        function formatAlertName(alertKey) {
+            // Formata o nome da chave do alerta para ser mais legível
+            return alertKey.replace(/_/g, ' ').replace('critical', '(Crítico)').replace('warning', '(Aviso)').trim();
+        }
+
+        // Atualiza as métricas a cada 5 segundos
+        setInterval(fetchMetrics, 5000);
+
+        // Busca as métricas na carga inicial da página
+        fetchMetrics();
+    </script>
+</body>
+</html>

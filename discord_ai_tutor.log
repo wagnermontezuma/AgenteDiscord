@@ -1,0 +1,74 @@
+2025-06-13 16:06:28,093 - tools.response_cache - INFO - Arquivo de cache C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_initialization0\test_cache.json não encontrado. Iniciando com cache vazio.
+2025-06-13 16:06:28,094 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:28,094 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 0)
+2025-06-13 16:06:28,097 - tools.response_cache - INFO - Arquivo de cache C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_response_and_get_hi0\test_cache.json não encontrado. Iniciando com cache vazio.
+2025-06-13 16:06:28,097 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:28,097 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 0)
+2025-06-13 16:06:28,101 - tools.response_cache - INFO - Arquivo de cache C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_get_miss0\test_cache.json não encontrado. Iniciando com cache vazio.
+2025-06-13 16:06:28,102 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:28,102 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 0)
+2025-06-13 16:06:28,106 - tools.response_cache - INFO - Arquivo de cache C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_normalization0\test_cache.json não encontrado. Iniciando com cache vazio.
+2025-06-13 16:06:28,106 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:28,106 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 0)
+2025-06-13 16:06:28,111 - tools.response_cache - INFO - Arquivo de cache C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_expiration0\test_cache.json não encontrado. Iniciando com cache vazio.
+2025-06-13 16:06:28,111 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:28,111 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 0)
+2025-06-13 16:06:28,627 - tools.response_cache - INFO - Arquivo de cache C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_cleanup_expired0\test_cache.json não encontrado. Iniciando com cache vazio.
+2025-06-13 16:06:28,628 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:28,628 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 0)
+2025-06-13 16:06:29,129 - tools.response_cache - INFO - Limpeza de cache: 2 entradas expiradas removidas.
+2025-06-13 16:06:29,130 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 2)
+2025-06-13 16:06:29,137 - tools.response_cache - INFO - Arquivo de cache C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_persistence0\test_cache.json não encontrado. Iniciando com cache vazio.
+2025-06-13 16:06:29,137 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:29,137 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 0)
+2025-06-13 16:06:29,150 - tools.response_cache - INFO - Cache carregado de C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_persistence0\test_cache.json. Total de entradas: 1
+2025-06-13 16:06:29,150 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:29,150 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 1 (antes: 1)
+2025-06-13 16:06:29,154 - tools.response_cache - INFO - Arquivo de cache C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_compression0\test_cache.json não encontrado. Iniciando com cache vazio.
+2025-06-13 16:06:29,154 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:29,154 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 0)
+2025-06-13 16:06:29,158 - tools.response_cache - INFO - Arquivo de cache C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_backup0\test_cache.json não encontrado. Iniciando com cache vazio.
+2025-06-13 16:06:29,158 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:29,158 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 0)
+2025-06-13 16:06:29,175 - tools.response_cache - ERROR - Erro ao decodificar JSON do cache: Expecting value: line 1 column 1 (char 0). Iniciando com cache vazio.
+2025-06-13 16:06:29,178 - tools.response_cache - INFO - Arquivo de cache C:\Users\monte\AppData\Local\Temp\pytest-of-monte\pytest-22\test_cache_stats_reset0\test_cache.json não encontrado. Iniciando com cache vazio.
+2025-06-13 16:06:29,179 - tools.response_cache - INFO - Limpeza de cache: Nenhuma entrada expirada encontrada.
+2025-06-13 16:06:29,179 - tools.response_cache - INFO - Cache atualizado. Total de entradas: 0 (antes: 0)
+2025-06-13 16:06:29,180 - tools.response_cache - INFO - Estatísticas de cache resetadas.
+2025-06-13 16:06:29,182 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,184 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,195 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,197 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,199 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,201 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,207 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,209 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,215 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,221 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,225 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,227 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,228 - tools.simple_classifier - INFO - Nova categoria 'new_topic' criada.
+2025-06-13 16:06:29,228 - tools.simple_classifier - INFO - 2 novas palavras-chave adicionadas à categoria 'new_topic'.
+2025-06-13 16:06:29,229 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,230 - tools.simple_classifier - INFO - Nova categoria 'temp_category' criada.
+2025-06-13 16:06:29,230 - tools.simple_classifier - INFO - 2 novas palavras-chave adicionadas à categoria 'temp_category'.
+2025-06-13 16:06:29,231 - tools.simple_classifier - INFO - 1 palavras-chave removidas da categoria 'temp_category'.
+2025-06-13 16:06:29,232 - tools.simple_classifier - INFO - SimpleClassifier inicializado com 4 categorias.
+2025-06-13 16:06:29,241 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-06-13 16:06:29,243 - agents.discord_tutor - INFO - DiscordAITutorFree inicializado.
+2025-06-13 16:06:29,252 - agents.discord_tutor - INFO - DiscordAITutorFree inicializado.
+2025-06-13 16:06:29,266 - agents.discord_tutor - INFO - DiscordAITutorFree inicializado.
+2025-06-13 16:06:29,279 - agents.discord_tutor - INFO - DiscordAITutorFree inicializado.
+2025-06-13 16:06:29,288 - agents.discord_tutor - INFO - Mensagem de <MagicMock name='mock.author' spec='User' id='1150635448640'> (123) no canal #<AsyncMock name='mock.channel' spec='TextChannel' id='1150635448976'> (<MagicMock name='mock.channel.id' id='1150635453008'>): Olá bot
+2025-06-13 16:06:29,332 - agents.discord_tutor - INFO - DiscordAITutorFree inicializado.
+2025-06-13 16:06:29,338 - agents.discord_tutor - INFO - Mensagem de <MagicMock name='mock.author' spec='User' id='1150635446624'> (456) no canal #<AsyncMock name='mock.channel' spec='TextChannel' id='1150635445616'> (<MagicMock name='mock.channel.id' id='1150635456368'>): O que é machine learning?
+2025-06-13 16:06:29,380 - agents.discord_tutor - INFO - DiscordAITutorFree inicializado.
+2025-06-13 16:06:29,386 - agents.discord_tutor - INFO - Mensagem de <MagicMock name='mock.author' spec='User' id='1150636149120'> (789) no canal #<AsyncMock name='mock.channel' spec='TextChannel' id='1150636149456'> (<MagicMock name='mock.channel.id' id='1150636153488'>): Pergunta muito longa para testar a divisão de resposta.
+2025-06-13 16:06:29,428 - agents.discord_tutor - INFO - DiscordAITutorFree inicializado.
+2025-06-13 16:06:29,444 - agents.discord_tutor - INFO - DiscordAITutorFree inicializado.
+2025-06-13 16:06:29,461 - agents.discord_tutor - INFO - DiscordAITutorFree inicializado.
+2025-06-13 16:06:29,476 - agents.discord_tutor - INFO - DiscordAITutorFree inicializado.
+2025-06-13 16:06:29,742 - discord_ai_tutor_free.utils.prompt_builder - INFO - PromptBuilder inicializado com a versão: v1.0
+2025-06-13 16:06:29,748 - discord_ai_tutor_free.utils.prompt_builder - INFO - PromptBuilder inicializado com a versão: v1.0
+2025-06-13 16:06:29,753 - discord_ai_tutor_free.utils.prompt_builder - INFO - PromptBuilder inicializado com a versão: v1.0
+2025-06-13 16:06:29,758 - discord_ai_tutor_free.utils.prompt_builder - INFO - PromptBuilder inicializado com a versão: v1.0
